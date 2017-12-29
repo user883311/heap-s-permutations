@@ -4,6 +4,23 @@ This is an implementation of the Heaps' permutations algorithm, and the pseudoco
 
 Source: https://en.wikipedia.org/wiki/Heap%27s_algorithm
 
+## Pseudo-code (recursive)
+    procedure generate(n : integer, A : array of any):
+        if n = 1 then
+              output(A)
+        else
+            for i := 0; i < n - 1; i += 1 do
+                generate(n - 1, A)
+                if n is even then
+                    swap(A[i], A[n-1])
+                else
+                    swap(A[0], A[n-1])
+                end if
+            end for
+            generate(n - 1, A)
+        end if
+
+
 ## Pseudo-code (non-recursive)
     procedure generate(n : integer, A : array of any):
     c : array of int
