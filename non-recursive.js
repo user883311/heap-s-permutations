@@ -1,7 +1,7 @@
-
 function generatePermutationsFromArray(a) {
-    /* Procedure to generate all possible permutations for given array 
-    c : array of int              */
+    /* Procedure to generate all possible permutations for given array. 
+    Pseudocode source: https://en.wikipedia.org/wiki/Heap%27s_algorithm 
+    c : array of int                                                 */
     var c = [];
     var n = a.length;
     var result = [];
@@ -11,8 +11,6 @@ function generatePermutationsFromArray(a) {
     for (i = 0; i < n; i++) {
         c.push(0);
     }
-    // output(A)
-    console.log(a);
     result.push(a.slice()); // slice for shallow copying
     // i := 0;
     var i = 0;
@@ -31,8 +29,6 @@ function generatePermutationsFromArray(a) {
                 swap(a, c[i], i);
             }
             // end if
-            // output(A)
-            // console.log(a);
             result.push(a.slice());
             // c[i] += 1
             c[i] += 1;
@@ -49,12 +45,36 @@ function generatePermutationsFromArray(a) {
         // end if
         // end while
     }
-
     function swap(arr, i, j) {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
 
-    console.log(result);
+    return result;
 }
+
+function generatePermutationsFromString(s) {
+    var tempArray = generatePermutationsFromArray(s.split(""));
+    var result = [];
+    tempArray.forEach(element => {
+        result.push(element.toString().replace(/,/g, ""));
+    });
+    return result;
+}
+
+function generatePermutationsFromStringWithoutRep(s) {
+    arr = generatePermutationsFromString(s);
+    result = [];
+
+    arr.forEach(function (element) {
+        if (element.search(/(\w)\1/) == -1) {
+            result.push(element);
+        }
+    });
+    return result;
+}
+
+// TESTING
+generatePermutationsFromArray(["a","b","c"]); // returns: [ [ 'a', 'b', 'c' ], [ 'b', 'a', 'c' ], [ 'c', 'a', 'b' ], [ 'a', 'c', 'b' ], [ 'b', 'c', 'a' ], [ 'c', 'b', 'a' ] ]
+generatePermutationsFromString("abc"); // returns [ 'abc', 'bac', 'cab', 'acb', 'bca', 'cba' ]
