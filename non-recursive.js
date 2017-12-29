@@ -63,18 +63,6 @@ function generatePermutationsFromString(s) {
     return result;
 }
 
-function generatePermutationsFromStringWithoutRep(s) {
-    arr = generatePermutationsFromString(s);
-    result = [];
-
-    arr.forEach(function (element) {
-        if (element.search(/(\w)\1/) == -1) {
-            result.push(element);
-        }
-    });
-    return result;
-}
-
 // TESTING
 generatePermutationsFromArray(["a","b","c"]); // returns: [ [ 'a', 'b', 'c' ], [ 'b', 'a', 'c' ], [ 'c', 'a', 'b' ], [ 'a', 'c', 'b' ], [ 'b', 'c', 'a' ], [ 'c', 'b', 'a' ] ]
 generatePermutationsFromString("abc"); // returns [ 'abc', 'bac', 'cab', 'acb', 'bca', 'cba' ]
