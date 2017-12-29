@@ -1,7 +1,7 @@
-
 function generatePermutationsFromArray(a) {
-    /* Procedure to generate all possible permutations for given array 
-    c : array of int              */
+    /* Procedure to generate all possible permutations for given array. 
+    Pseudocode source: https://en.wikipedia.org/wiki/Heap%27s_algorithm 
+    c : array of int                                                 */
     var c = [];
     var n = a.length;
     var result = [];
@@ -45,12 +45,12 @@ function generatePermutationsFromArray(a) {
         // end if
         // end while
     }
-
     function swap(arr, i, j) {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
     return result;
 }
 
@@ -72,9 +72,9 @@ function generatePermutationsFromStringWithoutRep(s) {
             result.push(element);
         }
     });
-    console.log(result);
     return result;
 }
 
 // TESTING
-generatePermutationsFromStringWithoutRep("abfdefa");
+generatePermutationsFromArray(["a","b","c"]); // returns: [ [ 'a', 'b', 'c' ], [ 'b', 'a', 'c' ], [ 'c', 'a', 'b' ], [ 'a', 'c', 'b' ], [ 'b', 'c', 'a' ], [ 'c', 'b', 'a' ] ]
+generatePermutationsFromString("abc"); // returns [ 'abc', 'bac', 'cab', 'acb', 'bca', 'cba' ]
