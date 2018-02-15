@@ -1,8 +1,8 @@
 # Heap's permutations
 
-This is an implementation of the Heaps' permutations algorithm, and the pseudocode available on the corresponding Wikipedia article. 
+This is an implementation of the Heaps' permutations algorithm. The Heap's algorithm generates all possible permutations of n objects. My starting point pseudocode available on the corresponding Wikipedia article (https://en.wikipedia.org/wiki/Heap%27s_algorithm). 
 
-Source: https://en.wikipedia.org/wiki/Heap%27s_algorithm
+There are both recursive and iterative implementations. 
 
 ## Pseudo-code (recursive)
     procedure generate(n : integer, A : array of any):
